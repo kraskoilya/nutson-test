@@ -8,9 +8,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '@nutson-test/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpErrorHandlerInterceptor } from './core/interceptors/http-error-handler.interceptor';
-import { PrefixInterceptor } from './core/interceptors/prefix.interceptor';
-import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import { HttpErrorHandlerInterceptor } from './core/interceptor/http-error-handler.interceptor';
+import { PrefixInterceptor } from './core/interceptor/prefix.interceptor';
+import { TokenInterceptor } from './core/interceptor/token.interceptor';
 import { AppEffects } from './core/store/app.effect';
 
 @NgModule({
