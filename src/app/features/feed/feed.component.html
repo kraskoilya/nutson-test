@@ -1,0 +1,21 @@
+<ng-container *ngIf="{ isLoading: isLoading$ | async, feed: feed$ | async } as context">
+  <ng-container *ngIf="!context.isLoading; else loadingTmp">
+    <ng-container *ngIf="context.feed?.media?.length; else emptyTmp">
+      <div class="media-item"
+           *ngFor="let media of context.feed?.media; index as index">
+        <p>Post #{{index+1}}</p>
+        <p>{{media.media_description}}</p>
+      </div>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #emptyTmp>
+  <p>Empty media</p>
+</ng-template>
+
+<ng-template #loadingTmp>
+  <div class="center">
+    <span>Loading...</span>
+  </div>
+</ng-template>

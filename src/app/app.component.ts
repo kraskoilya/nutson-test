@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { refreshLogin } from './features/auth/store/actions/login.action';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `<router-outlet></router-outlet>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-  title = 'nutson-test';
+export class AppComponent implements OnInit {
+  constructor(private readonly _store: Store) {}
+
+  public ngOnInit(): void {
+    this._store.dispatch(refreshLogin());
+  }
 }
